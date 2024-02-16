@@ -1,0 +1,43 @@
+body {
+  @apply min-h-full box-border grid;
+  grid-template-rows: max-content 1fr max-content;
+  grid-template-areas:
+    "header"
+    "main"
+    "footer";
+
+  & > header {
+    grid-area: header;
+  }
+
+  & > main {
+    @apply pt-6 md:pt-10 px-6 z-0;
+    grid-area: main;
+  }
+
+  & > footer {
+    grid-area: footer;
+  }
+}
+
+.aside-content-container {
+  @apply lg:mt-6 lg:mx-6;
+
+  &:first-child {
+    @apply lg:mt-24;
+  }
+}
+
+@screen lg {
+  body {
+    &.has-footer {
+      & > main {
+        @apply px-7.5;
+      }
+    }
+  }
+
+  #left:not(:empty) ~ #right {
+    max-width: 340px;
+  }
+}

@@ -1,0 +1,8 @@
+#background {
+  @apply z-0;
+}
+
+.has-header #background {
+  top: var(--header-height);
+  height: calc(100% - var(--header-height));
+}

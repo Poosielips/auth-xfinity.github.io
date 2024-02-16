@@ -1,0 +1,108 @@
+.tve {
+  & #left,
+  & #asidePanel {
+    &,
+    & .link {
+      text-shadow: 0 0 5px #000;
+    }
+
+    & #ad-block {
+      width: 300px;
+      height: 250px;
+    }
+  }
+
+  &.dark #tve_learn_more {
+    @apply text-neutral-base underline;
+    outline-color: rgb(var(--border-color-stroke-neutral-base));
+  }
+
+  & #tve_info {
+    & h2 {
+      @apply text-headline3;
+      &:not(:first-of-type) {
+        @apply mt-4;
+      }
+    }
+
+    & p {
+      @apply mt-2;
+    }
+  }
+}
+
+@media (max-width: calc(theme("screens.md") - 1px)) {
+  .tve {
+    & #tve_info {
+      & .modalcontainer {
+        max-height: 98vh;
+      }
+    }
+  }
+}
+
+@media (max-width: calc(theme("screens.lg") - 1px)) {
+  .tve {
+    &:not(.next) body > main {
+      @apply grid;
+      grid-template-areas:
+        "form"
+        "ad";
+    }
+
+    & #left {
+      @apply block w-full m-0 mt-4 p-0 bg-none;
+      grid-area: ad;
+
+      & #left-side-text-container {
+        @apply hidden;
+      }
+
+      #ad-block {
+        @apply m-auto;
+      }
+    }
+
+    & #right,
+    & #formPanel {
+      grid-area: form;
+    }
+  }
+}
+
+@screen md {
+  .tve {
+    & #tve_info {
+      --modal-w: 75vw;
+    }
+  }
+}
+
+@screen lg {
+  .tve {
+    & #background {
+      @apply bg-no-repeat bg-top;
+    }
+
+    & #left,
+    & #asidePanel {
+      & .h1 {
+        @apply text-display2;
+      }
+
+      & ul {
+        @apply pl-7.5 mt-4 mb-7.5;
+      }
+
+      & li {
+        @apply pl-1.5 leading-8 list-disc text-headline2;
+      }
+    }
+
+    & #left {
+      & #left-side-text-container {
+        @apply mt-7.5;
+      }
+    }
+  }
+}
